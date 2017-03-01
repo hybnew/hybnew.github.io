@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hybnew.github.io/"/>
-  <updated>2017-02-28T10:03:47.239Z</updated>
+  <updated>2017-03-01T03:41:37.400Z</updated>
   <id>http://hybnew.github.io/</id>
   
   <author>
@@ -16,46 +16,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>中文测试逝世十四</title>
-    <link href="http://hybnew.github.io/2017/02/28/%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95%E9%80%9D%E4%B8%96%E5%8D%81%E5%9B%9B/"/>
-    <id>http://hybnew.github.io/2017/02/28/中文测试逝世十四/</id>
-    <published>2017-02-28T10:03:23.000Z</published>
-    <updated>2017-02-28T10:03:47.239Z</updated>
+    <title>Java Object的 wait &amp; notify &amp; notifyAll 方法探索</title>
+    <link href="http://hybnew.github.io/2017/03/01/Java-Object%E7%9A%84-wait-notify-notifyAll-%E6%96%B9%E6%B3%95%E6%8E%A2%E7%B4%A2/"/>
+    <id>http://hybnew.github.io/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/</id>
+    <published>2017-03-01T03:25:33.000Z</published>
+    <updated>2017-03-01T03:41:37.400Z</updated>
     
-    <content type="html"><![CDATA[<p>啊三大杀手的啊飒飒的噶山豆根a’s</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;啊三大杀手的啊飒飒的噶山豆根a’s&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Java Ojbect&#39;s method wait and notify(Java wait &amp; notify ����)</title>
-    <link href="http://hybnew.github.io/2017/02/28/hello-world/"/>
-    <id>http://hybnew.github.io/2017/02/28/hello-world/</id>
-    <published>2017-02-28T06:51:54.648Z</published>
-    <updated>2017-02-28T09:44:24.544Z</updated>
-    
-    <content type="html"><![CDATA[<p>����<br>���ٲ���˹���˸о�����˼· asdfasd �żٰ�˭˵�ĸо������˵�����˹�Ĺؼ�����<br>���ǵĸо��������ü�����˹�ĸо���<br>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
+    <content type="html"><![CDATA[<blockquote>
+<p>wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java  <code>Object</code> 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。</p>
+</blockquote>
+<p>[TOC]</p>
+<h4 id="关于wait和notify-notifyAll的使用"><a href="#关于wait和notify-notifyAll的使用" class="headerlink" title="关于wait和notify/notifyAll的使用"></a>关于wait和notify/notifyAll的使用</h4><h5 id="javadoc-reference"><a href="#javadoc-reference" class="headerlink" title="javadoc reference"></a>javadoc reference</h5><h4 id="wait方法的loop纠结"><a href="#wait方法的loop纠结" class="headerlink" title="wait方法的loop纠结"></a>wait方法的loop纠结</h4><h4 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a>notify和notifyAll的区别</h4>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;����&lt;br&gt;���ٲ���˹���˸о�����˼· asdfasd �żٰ�˭˵�ĸо������˵�����˹�Ĺؼ�����&lt;br&gt;���ǵĸо��������ü�����˹�ĸо���&lt;br&gt;Welcome to &lt;a href=&quot;https://hexo.io
+      &lt;blockquote&gt;
+&lt;p&gt;wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java  &lt;code&gt;Object&lt;/code&gt; 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁
     
     </summary>
     

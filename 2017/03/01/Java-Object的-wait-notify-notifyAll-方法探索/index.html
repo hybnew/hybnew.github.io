@@ -3,17 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Garden 园丁</title>
+  <title>Java Object的 wait &amp; notify &amp; notifyAll 方法探索 | Garden 园丁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="园丁">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Garden 园丁">
-<meta property="og:url" content="http://hybnew.github.io/index.html">
+  <meta name="description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java  Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。
+
+[TOC]
+关于wait和notify/notifyAll的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Object的 wait & notify & notifyAll 方法探索">
+<meta property="og:url" content="http://hybnew.github.io/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/index.html">
 <meta property="og:site_name" content="Garden 园丁">
-<meta property="og:description" content="园丁">
+<meta property="og:description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java  Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。
+
+[TOC]
+关于wait和notify/notifyAll的">
+<meta property="og:updated_time" content="2017-03-01T03:41:37.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Garden 园丁">
-<meta name="twitter:description" content="园丁">
+<meta name="twitter:title" content="Java Object的 wait & notify & notifyAll 方法探索">
+<meta name="twitter:description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java  Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。
+
+[TOC]
+关于wait和notify/notifyAll的">
   
     <link rel="alternate" href="/atom.xml" title="Garden 园丁" type="application/atom+xml">
   
@@ -66,9 +76,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Java-Object的-wait-notify-notifyAll-方法探索" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java-Object的-wait-notify-notifyAll-方法探索" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/" class="article-date">
   <time datetime="2017-03-01T03:25:33.000Z" itemprop="datePublished">2017-03-01</time>
@@ -81,8 +89,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/">Java Object的 wait &amp; notify &amp; notifyAll 方法探索</a>
+    <h1 class="article-title" itemprop="name">
+      Java Object的 wait &amp; notify &amp; notifyAll 方法探索
     </h1>
   
 
@@ -104,10 +112,9 @@
     </footer>
   </div>
   
-</article>
-
-
+    
   
+</article>
 
 </section>
         
