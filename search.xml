@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[404.html]]></title>
+      <url>http://hybnew.github.io/2017/03/02/404-html/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://hybnew.github.io/2017/03/02/about/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://hybnew.github.io/2017/03/02/tags/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>http://hybnew.github.io/2017/03/02/categories/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JUC 的原子操作类AtomicReference & 与volatile的区别]]></title>
       <url>http://hybnew.github.io/2017/03/02/JUC-%E7%9A%84%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BBAtomicReference-%E4%B8%8Evolatile%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       <content type="html"></content>
