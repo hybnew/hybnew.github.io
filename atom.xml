@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="http://hybnew.github.io/"/>
-  <updated>2017-03-02T08:21:28.556Z</updated>
+  <updated>2017-03-02T08:21:06.487Z</updated>
   <id>http://hybnew.github.io/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>404.html</title>
-    <link href="http://hybnew.github.io/2017/03/02/404-html/"/>
-    <id>http://hybnew.github.io/2017/03/02/404-html/</id>
-    <published>2017-03-02T08:21:28.000Z</published>
-    <updated>2017-03-02T08:21:28.556Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>about</title>
