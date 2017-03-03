@@ -38,8 +38,9 @@
     <entry>
       <title><![CDATA[java 线程的运行时异常处理-UncaughtExceptionHandler]]></title>
       <url>http://hybnew.github.io/2017/03/01/java-%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-UncaughtExceptionHandler/</url>
-      <content type="html"><![CDATA[<p><strong>以下的阐述均基于Runnable的线程实现</strong></p>
+      <content type="html"><![CDATA[<p><strong>Java 线程(Runnable)的异常处理, 以下的阐述均基于Runnable的线程实现</strong></p>
 <p>首先，有个问题，如果Java子线程发生异常会怎么样？实际上会导致该线程直接终止。<br>当年自己写了个线程模型大概是这样的：</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Spring容器启动 (1)</div><div class="line">  -&gt; 主线程中启动一个子线程T，在while循环中去接收socket请求 (2)</div><div class="line">    -&gt; 收到一个请求，submit一个线程 (3)</div></pre></td></tr></table></figure>
 <p>当时我一只担心步骤2的线程T会因为什么而挂掉，然后大家没办法上传文件。而当时完全不知道UncaughtExceptionHandler的存在，多希望有一丁点指导啊。</p>
 <p>那么如何处理可能出现的异常而不至于线程直接挂掉呢？<br>第一，把整个run中的异常在内部捕获掉<br>第二，直接在线程中setUncaughtExceptionHandler,将异常处理与run分开。</p>
