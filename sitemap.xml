@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hybnew.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-03-03T04:36:41.157Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hybnew.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-03-03T04:35:38.100Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hybnew.github.io/about/index.html</loc>
     
     <lastmod>2017-03-03T04:27:59.948Z</lastmod>
