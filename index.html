@@ -1509,14 +1509,17 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>Fork And Join 的并发框架对与大型任务的分解计算是十分方便的。主要是将任务分割（fork）最后再合并（join）得到结果。<br>实际上使用了<code>分治</code>的思想。其中涉及到任务窃取算法等。</p>
 </blockquote>
-<p>以下是一个计算Fibonacci数列的Demo,使用BigInteger是为了避免溢出，但是计算效率大大降低，可以用Long类型代替。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">package com.tw;</div><div class="line"></div><div class="line">import java.math.BigInteger;</div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line">import java.util.concurrent.RecursiveTask;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rick on 2017/2/27.</div><div class="line"> */</div><div class="line">public class ForkAndJoinTest extends RecursiveTask&lt;BigInteger&gt; &#123;</div><div class="line">    private int num;</div><div class="line">    private Map&lt;BigInteger, BigInteger&gt; intermediateResult;</div><div class="line"></div><div class="line">    public ForkAndJoinTest(int num, Map&lt;BigInteger, BigInteger&gt; map) &#123;</div><div class="line">        this.num = num;</div><div class="line">        intermediateResult = map;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line"></div><div class="line">    protected BigInteger compute() &#123;</div><div class="line">        if (num == 2)</div><div class="line">            return BigInteger.valueOf(1);</div><div class="line">        if (num == 1)</div><div class="line">            return BigInteger.valueOf(1);</div><div class="line">        if (num == 0)</div><div class="line">            return BigInteger.valueOf(0);</div><div class="line"></div><div class="line">        BigInteger lr, rr;</div><div class="line">        int i = num - 1;</div><div class="line">        int i1 = num - 2;</div><div class="line">        lr = getBigInteger(i);</div><div class="line">        rr = getBigInteger(i1);</div><div class="line"></div><div class="line">        return lr.add(rr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">    * 使用map缓存计算结果</div><div class="line">    */</div><div class="line">    private BigInteger getBigInteger(int i) &#123;</div><div class="line">        BigInteger lr;</div><div class="line">        if (null != intermediateResult.get(i))</div><div class="line">            lr = intermediateResult.get(i);//cacha number</div><div class="line">        else &#123;</div><div class="line">            ForkAndJoinTest join1 = new ForkAndJoinTest(i, intermediateResult);</div><div class="line">            join1.fork();</div><div class="line">            lr = join1.join();</div><div class="line">            intermediateResult.put(BigInteger.valueOf(i), lr);</div><div class="line">        &#125;</div><div class="line">        return lr;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public ForkAndJoinTest() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">//        1,1,2,3,5,8,13,21</div><div class="line">        Map&lt;BigInteger, BigInteger&gt; map = new HashMap&lt;&gt;();</div><div class="line">        for (int i = 0; i &lt; 90; i++) &#123;</div><div class="line"></div><div class="line">            ForkAndJoinTest faj = new ForkAndJoinTest(i, map);</div><div class="line">            faj.fork();</div><div class="line">            BigInteger join = faj.join();</div><div class="line">            System.out.println(&quot;#&quot; + i + &quot; &quot; + join);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>举一反三，例如计算1+2+…+n就可以使用这种多线程模型，假设1+2比较耗时的话。</p>
-
-          
+<p>以下是一个计算Fibonacci数列的Demo,使用BigInteger是为了避免溢出，但是计算效率大大降低，可以用Long类型代替。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/01/用Fork-And-Join框架计算Fibonacci数列/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1863,7 +1866,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2013 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
