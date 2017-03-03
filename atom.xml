@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="http://hybnew.github.io/"/>
-  <updated>2017-03-02T08:21:06.487Z</updated>
+  <updated>2017-03-02T04:52:19.600Z</updated>
   <id>http://hybnew.github.io/</id>
   
   <author>
@@ -14,48 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>about</title>
-    <link href="http://hybnew.github.io/2017/03/02/about/"/>
-    <id>http://hybnew.github.io/2017/03/02/about/</id>
-    <published>2017-03-02T08:21:06.000Z</published>
-    <updated>2017-03-02T08:21:06.487Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>tags</title>
-    <link href="http://hybnew.github.io/2017/03/02/tags/"/>
-    <id>http://hybnew.github.io/2017/03/02/tags/</id>
-    <published>2017-03-02T08:20:56.000Z</published>
-    <updated>2017-03-02T08:20:56.442Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>categories</title>
-    <link href="http://hybnew.github.io/2017/03/02/categories/"/>
-    <id>http://hybnew.github.io/2017/03/02/categories/</id>
-    <published>2017-03-02T08:20:33.000Z</published>
-    <updated>2017-03-02T08:20:33.209Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>JUC 的原子操作类AtomicReference &amp; 与volatile的区别</title>
