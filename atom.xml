@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>If 十只橘猫九只胖</title>
   <subtitle>Then 还有一只特别胖</subtitle>
-  <link href=".//atom.xml" rel="self"/>
+  <link href="//atom.xml" rel="self"/>
   
-  <link href="https://coding.net/u/yb007/p/rickblog/git/"/>
+  <link href="https://yb007.coding.me/rickblog/"/>
   <updated>2017-03-08T04:45:33.486Z</updated>
-  <id>https://coding.net/u/yb007/p/rickblog/git/</id>
+  <id>https://yb007.coding.me/rickblog/</id>
   
   <author>
     <name>Rick Ho</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>聊聊并发-Java中的Copy-On-Write容器(转载自并发网)</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/08/%E8%81%8A%E8%81%8A%E5%B9%B6%E5%8F%91-Java%E4%B8%AD%E7%9A%84Copy-On-Write%E5%AE%B9%E5%99%A8-%E8%BD%AC%E8%BD%BD%E8%87%AA%E5%B9%B6%E5%8F%91%E7%BD%91/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/08/%E8%81%8A%E8%81%8A%E5%B9%B6%E5%8F%91-Java%E4%B8%AD%E7%9A%84Copy-On-Write%E5%AE%B9%E5%99%A8-%E8%BD%AC%E8%BD%BD%E8%87%AA%E5%B9%B6%E5%8F%91%E7%BD%91/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/</id>
     <published>2017-03-08T03:35:29.000Z</published>
     <updated>2017-03-08T04:45:33.486Z</updated>
     
@@ -62,8 +62,8 @@
   
   <entry>
     <title>JUC 的原子操作类AtomicReference &amp; 与volatile的区别</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/02/JUC-%E7%9A%84%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BBAtomicReference-%E4%B8%8Evolatile%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/02/JUC-%E7%9A%84%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BBAtomicReference-%E4%B8%8Evolatile%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/</id>
     <published>2017-03-02T04:52:19.000Z</published>
     <updated>2017-03-08T09:57:29.103Z</updated>
     
@@ -85,8 +85,8 @@
   
   <entry>
     <title>分离任务与多线程的封装</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/%E5%88%86%E7%A6%BB%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B0%81%E8%A3%85/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/分离任务与多线程的封装/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/%E5%88%86%E7%A6%BB%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B0%81%E8%A3%85/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/分离任务与多线程的封装/</id>
     <published>2017-03-01T12:44:57.000Z</published>
     <updated>2017-03-01T12:44:57.969Z</updated>
     
@@ -99,8 +99,8 @@
   
   <entry>
     <title>单例模式的几种套路</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%A5%97%E8%B7%AF/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/单例模式的几种套路/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%A5%97%E8%B7%AF/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/单例模式的几种套路/</id>
     <published>2017-03-01T12:44:14.000Z</published>
     <updated>2017-03-01T12:44:14.839Z</updated>
     
@@ -113,8 +113,8 @@
   
   <entry>
     <title>本博客的入坑纪实-Hexo博客平台</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%85%A5%E5%9D%91%E7%BA%AA%E5%AE%9E-Hexo%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/本博客的入坑纪实-Hexo博客平台/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%85%A5%E5%9D%91%E7%BA%AA%E5%AE%9E-Hexo%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/本博客的入坑纪实-Hexo博客平台/</id>
     <published>2017-03-01T05:47:39.000Z</published>
     <updated>2017-03-01T05:47:39.280Z</updated>
     
@@ -127,8 +127,8 @@
   
   <entry>
     <title>java 线程的运行时异常处理-UncaughtExceptionHandler</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/java-%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-UncaughtExceptionHandler/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/java-线程的运行时异常处理-UncaughtExceptionHandler/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/java-%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-UncaughtExceptionHandler/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/java-线程的运行时异常处理-UncaughtExceptionHandler/</id>
     <published>2017-03-01T05:41:33.000Z</published>
     <updated>2017-03-03T06:34:24.267Z</updated>
     
@@ -154,23 +154,23 @@
     
     </summary>
     
-      <category term="Java" scheme="https://coding.net/u/yb007/p/rickblog/git/categories/Java/"/>
+      <category term="Java" scheme="https://yb007.coding.me/rickblog/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://coding.net/u/yb007/p/rickblog/git/tags/Java/"/>
+      <category term="Java" scheme="https://yb007.coding.me/rickblog/tags/Java/"/>
     
-      <category term="线程" scheme="https://coding.net/u/yb007/p/rickblog/git/tags/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="https://yb007.coding.me/rickblog/tags/%E7%BA%BF%E7%A8%8B/"/>
     
-      <category term="异常" scheme="https://coding.net/u/yb007/p/rickblog/git/tags/%E5%BC%82%E5%B8%B8/"/>
+      <category term="异常" scheme="https://yb007.coding.me/rickblog/tags/%E5%BC%82%E5%B8%B8/"/>
     
-      <category term="UncaughtExceptionHandler" scheme="https://coding.net/u/yb007/p/rickblog/git/tags/UncaughtExceptionHandler/"/>
+      <category term="UncaughtExceptionHandler" scheme="https://yb007.coding.me/rickblog/tags/UncaughtExceptionHandler/"/>
     
   </entry>
   
   <entry>
     <title>HashMap 源码分析</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/HashMap-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/HashMap-源码分析/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/HashMap-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/HashMap-源码分析/</id>
     <published>2017-03-01T04:11:29.000Z</published>
     <updated>2017-03-01T04:11:29.901Z</updated>
     
@@ -183,8 +183,8 @@
   
   <entry>
     <title>CocurrentHashMap 源码试解读</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/CocurrentHashMap-%E6%BA%90%E7%A0%81%E8%AF%95%E8%A7%A3%E8%AF%BB/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/CocurrentHashMap-源码试解读/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/CocurrentHashMap-%E6%BA%90%E7%A0%81%E8%AF%95%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/CocurrentHashMap-源码试解读/</id>
     <published>2017-03-01T04:11:11.000Z</published>
     <updated>2017-03-01T04:11:11.231Z</updated>
     
@@ -197,8 +197,8 @@
   
   <entry>
     <title>AbstractQueuedSynchronizer (AQS) 源码试解读</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/AbstractQueuedSynchronizer-AQS-%E6%BA%90%E7%A0%81%E8%AF%95%E8%A7%A3%E8%AF%BB/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/AbstractQueuedSynchronizer-AQS-源码试解读/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/AbstractQueuedSynchronizer-AQS-%E6%BA%90%E7%A0%81%E8%AF%95%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/AbstractQueuedSynchronizer-AQS-源码试解读/</id>
     <published>2017-03-01T04:10:51.000Z</published>
     <updated>2017-03-01T04:10:51.032Z</updated>
     
@@ -211,8 +211,8 @@
   
   <entry>
     <title>用Fork And Join框架计算Fibonacci数列</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/%E7%94%A8Fork-And-Join%E6%A1%86%E6%9E%B6%E8%AE%A1%E7%AE%97Fibonacci%E6%95%B0%E5%88%97/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/用Fork-And-Join框架计算Fibonacci数列/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/%E7%94%A8Fork-And-Join%E6%A1%86%E6%9E%B6%E8%AE%A1%E7%AE%97Fibonacci%E6%95%B0%E5%88%97/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/用Fork-And-Join框架计算Fibonacci数列/</id>
     <published>2017-03-01T04:08:50.000Z</published>
     <updated>2017-03-03T06:16:57.531Z</updated>
     
@@ -239,8 +239,8 @@
   
   <entry>
     <title>Java Object的 wait &amp; notify &amp; notifyAll 方法探索</title>
-    <link href="https://coding.net/u/yb007/p/rickblog/git/2017/03/01/Java-Object%E7%9A%84-wait-notify-notifyAll-%E6%96%B9%E6%B3%95%E6%8E%A2%E7%B4%A2/"/>
-    <id>https://coding.net/u/yb007/p/rickblog/git/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/</id>
+    <link href="https://yb007.coding.me/rickblog/2017/03/01/Java-Object%E7%9A%84-wait-notify-notifyAll-%E6%96%B9%E6%B3%95%E6%8E%A2%E7%B4%A2/"/>
+    <id>https://yb007.coding.me/rickblog/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/</id>
     <published>2017-03-01T03:25:33.000Z</published>
     <updated>2017-03-08T09:41:11.509Z</updated>
     
