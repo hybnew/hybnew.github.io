@@ -32,7 +32,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="./lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -66,9 +66,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="./lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="./css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -77,38 +77,38 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="If 十只橘猫九只胖" type="application/atom+xml" />
+  <link rel="alternate" href="./atom.xml" title="If 十只橘猫九只胖" type="application/atom+xml" />
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网
-Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnW">
+<meta name="description" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)
+Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)">
 <meta property="og:url" content="https://coding.net/u/yb007/p/rickblog/git/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/index.html">
 <meta property="og:site_name" content="If 十只橘猫九只胖">
-<meta property="og:description" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网
-Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnW">
-<meta property="og:updated_time" content="2017-03-08T04:43:10.332Z">
+<meta property="og:description" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)
+Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOn">
+<meta property="og:updated_time" content="2017-03-08T04:45:33.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)">
-<meta name="twitter:description" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网
-Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnW">
+<meta name="twitter:description" content="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)
+Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOn">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: './',
     scheme: 'Muse',
     sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
@@ -188,7 +188,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="./"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">If 十只橘猫九只胖</span>
         <span class="logo-line-after"><i></i></span>
@@ -216,7 +216,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="./archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -226,7 +226,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="./categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -236,7 +236,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="./tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -246,7 +246,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="./about" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -283,12 +283,12 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://coding.net/u/yb007/p/rickblog/git/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/">
+    <link itemprop="mainEntityOfPage" href="https://coding.net/u/yb007/p/rickblog/git./2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rick Ho">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="image" content="./uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -338,7 +338,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/#comments" itemprop="discussionUrl">
+                <a href="./2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -347,7 +347,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
 
           
           
-             <span id="/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/" class="leancloud_visitors" data-flag-title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)">
+             <span id="./2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/" class="leancloud_visitors" data-flag-title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -376,7 +376,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
       
 
       
-        <h2 id="聊聊并发-Java中的Copy-On-Write容器-转载自并发网"><a href="#聊聊并发-Java中的Copy-On-Write容器-转载自并发网" class="headerlink" title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网"></a>聊聊并发-Java中的Copy-On-Write容器(转载自并发网</h2><blockquote>
+        <h2 id="聊聊并发-Java中的Copy-On-Write容器-转载自并发网"><a href="#聊聊并发-Java中的Copy-On-Write容器-转载自并发网" class="headerlink" title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)"></a>聊聊并发-Java中的Copy-On-Write容器(<a href="http://ifeve.com/java-copy-on-write/" target="_blank" rel="external">转载自并发网</a>)</h2><blockquote>
 <p>Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。CopyOnWrite容器非常有用，可以在非常多的并发场景中使用到。</p>
 </blockquote>
 <a id="more"></a>
@@ -431,7 +431,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/" rel="next" title="JUC 的原子操作类AtomicReference & 与volatile的区别">
+              <a href="./2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/" rel="next" title="JUC 的原子操作类AtomicReference & 与volatile的区别">
                 <i class="fa fa-chevron-left"></i> JUC 的原子操作类AtomicReference & 与volatile的区别
               </a>
             
@@ -466,7 +466,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/"
-           data-title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)" data-url="https://coding.net/u/yb007/p/rickblog/git/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/">
+           data-title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)" data-url="https://coding.net/u/yb007/p/rickblog/git./2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/">
       </div>
     
   </div>
@@ -503,7 +503,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
+               src="./uploads/avatar.jpg"
                alt="Rick Ho" />
           <p class="site-author-name" itemprop="name">Rick Ho</p>
            
@@ -514,7 +514,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
         
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
+              <a href="./archives">
                 <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -523,7 +523,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="./categories">
                 <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -532,7 +532,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
 
           
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="./tags">
                 <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -543,7 +543,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
 
         
           <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
+            <a href="./atom.xml" rel="alternate">
               <i class="fa fa-rss"></i>
               RSS
             </a>
@@ -622,7 +622,7 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#聊聊并发-Java中的Copy-On-Write容器-转载自并发网"><span class="nav-number">1.</span> <span class="nav-text">聊聊并发-Java中的Copy-On-Write容器(转载自并发网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是CopyOnWrite容器"><span class="nav-number">1.0.1.</span> <span class="nav-text">什么是CopyOnWrite容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWriteArrayList的实现原理"><span class="nav-number">1.0.2.</span> <span class="nav-text">CopyOnWriteArrayList的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWrite的应用场景"><span class="nav-number">1.0.3.</span> <span class="nav-text">CopyOnWrite的应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWrite的缺点"><span class="nav-number">1.0.4.</span> <span class="nav-text">CopyOnWrite的缺点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#聊聊并发-Java中的Copy-On-Write容器-转载自并发网"><span class="nav-number">1.</span> <span class="nav-text">聊聊并发-Java中的Copy-On-Write容器(转载自并发网)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是CopyOnWrite容器"><span class="nav-number">1.0.1.</span> <span class="nav-text">什么是CopyOnWrite容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWriteArrayList的实现原理"><span class="nav-number">1.0.2.</span> <span class="nav-text">CopyOnWriteArrayList的实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWrite的应用场景"><span class="nav-number">1.0.3.</span> <span class="nav-text">CopyOnWrite的应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CopyOnWrite的缺点"><span class="nav-number">1.0.4.</span> <span class="nav-text">CopyOnWrite的缺点</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -702,46 +702,46 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="./lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="./lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="./lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="./lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="./lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
+  <script type="text/javascript" src="./lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="./js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="./js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="./js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="./js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="./js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -767,8 +767,8 @@ Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基�
   
     
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script src="./lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="./js/src/hook-duoshuo.js"></script>
   
 
 
