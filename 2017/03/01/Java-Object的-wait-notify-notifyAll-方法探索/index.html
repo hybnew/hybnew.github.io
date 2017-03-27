@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java 并发 多线程 通信 wait notify notifyAll," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。">
+<meta name="description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Object的 wait & notify & notifyAll 方法探索">
 <meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/index.html">
 <meta property="og:site_name" content="If 十只橘猫九只胖">
-<meta property="og:description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。">
+<meta property="og:description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。">
 <meta property="og:image" content="git@git.coding.net:yb007/yb007.coding.me.git/../../style.jpg">
-<meta property="og:updated_time" content="2017-03-08T09:41:11.509Z">
+<meta property="og:updated_time" content="2017-03-27T07:49:10.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Object的 wait & notify & notifyAll 方法探索">
-<meta name="twitter:description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。">
+<meta name="twitter:description" content="wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java Object 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。">
 <meta name="twitter:image" content="git@git.coding.net:yb007/yb007.coding.me.git/../../style.jpg">
 
 
@@ -376,7 +376,7 @@
 
       
         <blockquote>
-<p>wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java <code>Object</code> 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。</p>
+<p>wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java <code>Object</code> 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="关于wait和notify-notifyAll的使用"><a href="#关于wait和notify-notifyAll的使用" class="headerlink" title="关于wait和notify/notifyAll的使用"></a>关于wait和notify/notifyAll的使用</h1><p>举个栗子，关于消费者和生产者模型，会遇到队列（共享变量）为空即没有产品和队列已满的情况；如果是不使用ArrayBlockingQueue等阻塞队列，那么就需要自己对线程间的通信，或者称之为同步。说干就干，写个demo还是不费时间的。</p>
@@ -387,7 +387,11 @@
 <p>其中</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span> (obj) &#123;</div><div class="line">   <span class="keyword">while</span> (&lt;condition does not hold&gt;)</div><div class="line">       obj.wait(timeout);</div><div class="line">   ... <span class="comment">// Perform action appropriate to condition</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这句话尤为重要。</p>
-<h1 id="wait方法的loop纠结"><a href="#wait方法的loop纠结" class="headerlink" title="wait方法的loop纠结"></a>wait方法的loop纠结</h1><h1 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a>notify和notifyAll的区别</h1><p>本文重点：</p>
+<h1 id="wait方法的loop纠结"><a href="#wait方法的loop纠结" class="headerlink" title="wait方法的loop纠结"></a>wait方法的loop纠结</h1><p>按照javadoc的解释， wait放在循环体中。but why? 很简单，因为被唤醒意味着有机会执行后续代码，但是，被唤醒的时候也应该检测是否满足条件；<br>使用while则可以在醒来之后再次检测；如果条件合适(condition hold)那么跳出循环，执行后续代码；如果不合适则再次阻塞。<br>但是使用if(condition does not hold)，则只能在进入时检测，在wait之后就没机会检测了。</p>
+<h1 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a>notify和notifyAll的区别</h1><p>notify和notifyAll都可以在改变了共享资源的情况下通知其他等待在该对象的等待队列中的线程，使其从阻塞中醒来。醒来这一步都是相同的，但是之后的就是两者的区别了。<br>具体来说，notify 将由jvm选取一个等待在该对象的线程使其醒来，并且获得锁，然后继续运行。其他线程既不会醒来，也就没有机会去竞争锁了。<br>而notifyAll则是将由jvm个等待在该对象的所有线程使其醒来，并且各自竞争锁。所以，如果时间充足并且不发生活锁的情况，那么所有线程将有机会获得锁并且运行下去。<br>举例来说，比如是这种情况，有线程A,B,C,D，同步对象S，当前BCD阻塞，A线程改变了S对象，并且分别使用notify和notifyAll，那么：<br>. notify 可能唤醒了C，而且C获取了S的锁，C可以运行下去。跟DB将保持阻塞状态。<br>. notifyAll 则是唤醒了BCD，这时候BCD同时去竞争S的锁，如果B获取了锁，那么CD将等待锁；当B释放锁之后，CD竞争该锁…</p>
+<p>接下来我们看看例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">Runnable r = new Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        synchronized (que) &#123;</div><div class="line">            while (que.size() == 0) &#123;</div><div class="line">                try &#123;</div><div class="line">                    que.wait(10000);</div><div class="line">                    System.out.println(Thread.currentThread().getId());</div><div class="line">                    Thread.sleep(1000);</div><div class="line">                &#125; catch (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">new Thread(r).start();</div><div class="line">new Thread(r).start();</div><div class="line">new Thread(r).start();</div><div class="line">new Thread(r).start();</div><div class="line">		</div><div class="line">new Thread(new Runnable() &#123; //Producer</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        synchronized (que) &#123;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(3000);</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            int nextInt = new Random().nextInt(10);</div><div class="line">            que.add(nextInt + &quot;&quot;);</div><div class="line">            System.out.println(&quot;add int &quot; + nextInt + &quot; ...&quot;);</div><div class="line">            que.notify();</div><div class="line">            System.out.println(&quot;Producer Thread &quot; + Thread.currentThread().getId() + &quot; call notifyAll &quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;).start();</div></pre></td></tr></table></figure></p>
+<p>结果是：<br>notify-&gt; 1<br>notifyAll -&gt; 2 1 3 4</p>
+<p>本文重点：</p>
 <ol>
 <li>你可以使用wait和notify函数来实现线程间通信。你可以用它们来实现多线程（&gt;3）之间的通信。</li>
 <li>永远在synchronized的函数或对象里使用wait、notify和notifyAll，不然Java虚拟机会生成 IllegalMonitorStateException。</li>
@@ -417,6 +421,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-并发-多线程-通信-wait-notify-notifyAll/" rel="tag"># Java 并发 多线程 通信 wait notify notifyAll</a>
+          
+        </div>
       
 
       
@@ -529,7 +539,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

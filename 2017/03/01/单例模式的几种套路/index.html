@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java 并发 设计模式," />
 
 
 
@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="RickyDuoli">
+<meta name="description" content="套路1 - 立即加载 instantly initialization1234567891011public class EagerSingleton &amp;#123;    **private** **static** EagerSingleton instance = new EagerSingleton();    **private** EagerSingleton() &amp;#123;    &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例模式的几种套路">
 <meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/单例模式的几种套路/index.html">
 <meta property="og:site_name" content="If 十只橘猫九只胖">
-<meta property="og:description" content="RickyDuoli">
-<meta property="og:updated_time" content="2017-03-01T12:44:14.839Z">
+<meta property="og:description" content="套路1 - 立即加载 instantly initialization1234567891011public class EagerSingleton &amp;#123;    **private** **static** EagerSingleton instance = new EagerSingleton();    **private** EagerSingleton() &amp;#123;    &amp;">
+<meta property="og:updated_time" content="2017-03-27T07:39:58.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式的几种套路">
-<meta name="twitter:description" content="RickyDuoli">
+<meta name="twitter:description" content="套路1 - 立即加载 instantly initialization1234567891011public class EagerSingleton &amp;#123;    **private** **static** EagerSingleton instance = new EagerSingleton();    **private** EagerSingleton() &amp;#123;    &amp;">
 
 
 
@@ -373,7 +373,12 @@
       
 
       
-        
+        <h2 id="套路1-立即加载-instantly-initialization"><a href="#套路1-立即加载-instantly-initialization" class="headerlink" title="套路1 - 立即加载 instantly initialization"></a>套路1 - 立即加载 instantly initialization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class EagerSingleton &#123;</div><div class="line">    **private** **static** EagerSingleton instance = new EagerSingleton();</div><div class="line"></div><div class="line">    **private** EagerSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static EagerSingleton getInstance() &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路2-延迟初始化-lazy-initialization"><a href="#套路2-延迟初始化-lazy-initialization" class="headerlink" title="套路2 - 延迟初始化 lazy initialization"></a>套路2 - 延迟初始化 lazy initialization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class LazySingleton &#123;</div><div class="line"></div><div class="line">    private static LazySingleton instance;</div><div class="line"></div><div class="line">    private LazySingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static **synchronized** LazySingleton getInstance() &#123;</div><div class="line">        if (instance == null) &#123;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(1000 * 3);// mock long time init</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            instance = new LazySingleton();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路3-静态内部类-static-Holder"><a href="#套路3-静态内部类-static-Holder" class="headerlink" title="套路3 - 静态内部类 static Holder"></a>套路3 - 静态内部类 static Holder</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class InnerHolderClass &#123;</div><div class="line"></div><div class="line">    private InnerHolderClass() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static class InnerHolder &#123;</div><div class="line">        static InnerHolderClass innerHolder = new InnerHolderClass();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static InnerHolderClass getInstance() &#123;</div><div class="line">        InnerHolderClass innerHolder = InnerHolder.innerHolder;</div><div class="line"></div><div class="line">        try &#123;</div><div class="line">            Thread.sleep(3000);</div><div class="line">        &#125; catch (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return innerHolder;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路4-枚举-enum"><a href="#套路4-枚举-enum" class="headerlink" title="套路4 - 枚举 enum"></a>套路4 - 枚举 enum</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public enum EnumSingleton &#123;</div><div class="line">    SINGLE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路5-双重锁-double-check"><a href="#套路5-双重锁-double-check" class="headerlink" title="套路5 - 双重锁 double check"></a>套路5 - 双重锁 double check</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class DoubleCheckSingleton &#123;</div><div class="line">    //volatile is important!!!</div><div class="line">    //volatile is important!!!</div><div class="line">    //volatile is important!!!</div><div class="line">    private static **volatile** DoubleCheckSingleton instance;//volatile is important!!!</div><div class="line"></div><div class="line">    private DoubleCheckSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static DoubleCheckSingleton getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            synchronized (DoubleCheckSingleton.class) &#123;</div><div class="line">                if (null == instance) &#123;</div><div class="line">                    instance = new DoubleCheckSingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class EnhancedDoubleCheckSingleton &#123;</div><div class="line"></div><div class="line">    private static EnhancedDoubleCheckSingleton instance;</div><div class="line"></div><div class="line">    private EnhancedDoubleCheckSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //it&apos;s not the recommend way.we recommend lazy initialization inner class because the static instance field.</div><div class="line">    public static EnhancedDoubleCheckSingleton getInstance() &#123;</div><div class="line">        **EnhancedDoubleCheckSingleton tmp = instance;**</div><div class="line">        if (null == tmp) &#123;</div><div class="line">            synchronized (EnhancedDoubleCheckSingleton.class) &#123;</div><div class="line">                **tmp = instance;**</div><div class="line">                if (null == tmp) &#123;</div><div class="line">                    instance = tmp = new EnhancedDoubleCheckSingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return tmp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -393,6 +398,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-并发-设计模式/" rel="tag"># Java 并发 设计模式</a>
+          
+        </div>
       
 
       
@@ -466,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -500,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -579,6 +599,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#套路1-立即加载-instantly-initialization"><span class="nav-number">1.</span> <span class="nav-text">套路1 - 立即加载 instantly initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#套路2-延迟初始化-lazy-initialization"><span class="nav-number">2.</span> <span class="nav-text">套路2 - 延迟初始化 lazy initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#套路3-静态内部类-static-Holder"><span class="nav-number">3.</span> <span class="nav-text">套路3 - 静态内部类 static Holder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#套路4-枚举-enum"><span class="nav-number">4.</span> <span class="nav-text">套路4 - 枚举 enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#套路5-双重锁-double-check"><span class="nav-number">5.</span> <span class="nav-text">套路5 - 双重锁 double check</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

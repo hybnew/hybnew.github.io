@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="git@git.coding.net:yb007/yb007.coding.me.git/"/>
-  <updated>2017-03-15T09:18:47.957Z</updated>
+  <updated>2017-03-27T07:48:02.078Z</updated>
   <id>git@git.coding.net:yb007/yb007.coding.me.git/</id>
   
   <author>
@@ -20,19 +20,25 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/15/Vim-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/15/Vim-正则表达式入门/</id>
     <published>2017-03-15T09:17:45.000Z</published>
-    <updated>2017-03-15T09:18:47.957Z</updated>
+    <updated>2017-03-27T07:48:02.078Z</updated>
     
-    <content type="html"><![CDATA[<p>:g/^\s*$/d ɾ��ֻ�пհ׵���<br>:s/(\w+)\s+(\w+)/\2\t\1 �� data1 data2 �޸�Ϊ data2 data1<br>:%s/(\w+), (\w+)/\2 \1/ �� Doe, John �޸�Ϊ John Doe<br>:%s/\<id\>/\=line(“.”) �����е� id �ַ����滻Ϊ�к�<br>:%s/(^\&lt;\w+>)/\=(line(“.”)-10) .”.”. submatch(1)<br>��ÿ�п�ͷ�ĵ����滻Ϊ(�к�-10).���ʵĸ�ʽ,����11�е�word�滻��1. word</id\></p>
+    <content type="html"><![CDATA[<blockquote>
+<p>\v可以在Vim的正则中直接开启very magic模式，使得在写正则的特殊符号时无需转义。</p>
+</blockquote>
+<p>:g/^\s*$/d 删除所有空行。注意这里是:g，表示针对所有内容。:g/../d，这里的d是操作符，删除正则匹配的内容。<br>:s/(\w+)\s+(\w+)/\2\t\1 将 data1 data2 换为 data2 data1<br>:%s/(\w+), (\w+)/\2 \1/ 将 Doe, John 换为 John Doe<br>:%s/\<id\>/\=line(“.”) 将单词 id 换为 【行号.】<br>:%s/(^\&lt;\w+>)/\=(line(“.”)-10) .”.”. submatch(1)<br>将行首的单词之前添加【lineNumber - 10.】</id\></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;:g/^\s*$/d ɾ��ֻ�пհ׵���&lt;br&gt;:s/(\w+)\s+(\w+)/\2\t\1 �� data1 data2 �޸�Ϊ data2 data1&lt;br&gt;:%s/(\w+), (\w+)/\2 \1/ �� Doe, John �޸�Ϊ John Doe&lt;b
+      &lt;blockquote&gt;
+&lt;p&gt;\v可以在Vim的正则中直接开启very magic模式，使得在写正则的特殊符号时无需转义。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;:g/^\s*$/d 删除所有空行。注意这里是:g，表示针对所有内容。:g/../d，这里的d是操作符，删除正则
     
     </summary>
     
     
-      <category term="Vim RegEx ����" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Vim-RegEx-%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD/"/>
+      <category term="Vim RegEx 正则" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Vim-RegEx-%E6%AD%A3%E5%88%99/"/>
     
   </entry>
   
@@ -41,12 +47,14 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/14/JUC-ArrayBlockingQueue-%E5%88%86%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%E8%87%AA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%BD%91%EF%BC%89/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/14/JUC-ArrayBlockingQueue-分析（转载自并发编程网）/</id>
     <published>2017-03-14T07:53:57.000Z</published>
-    <updated>2017-03-14T07:53:57.124Z</updated>
+    <updated>2017-03-27T07:51:47.285Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="Java 并发 源码" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-%E5%B9%B6%E5%8F%91-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
@@ -55,7 +63,7 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/08/%E8%81%8A%E8%81%8A%E5%B9%B6%E5%8F%91-Java%E4%B8%AD%E7%9A%84Copy-On-Write%E5%AE%B9%E5%99%A8-%E8%BD%AC%E8%BD%BD%E8%87%AA%E5%B9%B6%E5%8F%91%E7%BD%91/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/</id>
     <published>2017-03-08T03:35:29.000Z</published>
-    <updated>2017-03-08T04:45:33.486Z</updated>
+    <updated>2017-03-27T07:50:11.955Z</updated>
     
     <content type="html"><![CDATA[<h2 id="聊聊并发-Java中的Copy-On-Write容器-转载自并发网"><a href="#聊聊并发-Java中的Copy-On-Write容器-转载自并发网" class="headerlink" title="聊聊并发-Java中的Copy-On-Write容器(转载自并发网)"></a>聊聊并发-Java中的Copy-On-Write容器(<a href="http://ifeve.com/java-copy-on-write/" target="_blank" rel="external">转载自并发网</a>)</h2><blockquote>
 <p>Copy-On-Write简称COW，是一种用于程序设计中的优化策略。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。CopyOnWrite容器非常有用，可以在非常多的并发场景中使用到。</p>
@@ -93,6 +101,8 @@
     </summary>
     
     
+      <category term="Java CopyOnWriteArrayList 并发 源码" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-CopyOnWriteArrayList-%E5%B9%B6%E5%8F%91-%E6%BA%90%E7%A0%81/"/>
+    
   </entry>
   
   <entry>
@@ -100,7 +110,7 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/02/JUC-%E7%9A%84%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%B1%BBAtomicReference-%E4%B8%8Evolatile%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/</id>
     <published>2017-03-02T04:52:19.000Z</published>
-    <updated>2017-03-08T09:57:29.103Z</updated>
+    <updated>2017-03-27T07:51:18.737Z</updated>
     
     <content type="html"><![CDATA[<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p><code>volatile</code> 常常与 <code>synchronized</code> 作比较，简单的说，synchronized 具有<code>互斥性</code> &amp; <code>可见性</code>，而volatile 仅有<code>可见性</code>;可见性保证了线程间更新了之后其他线程可以马上发现更新的值。但是，volatile并不能保证多线程下变量操作的原子性。所以类似i++或者long类型的操作等，如果在volatile修饰的field上面，依然会产生脏数据。<br>要保证原子性，可以使用volatile + CAS的实现方式。<br>以下出自方腾飞<a href="http://www.infoq.com/cn/articles/ftf-java-volatile" target="_blank" rel="external">《聊聊并发（一）深入分析Volatile的实现原理》</a></p>
 <blockquote>
@@ -115,6 +125,8 @@
     
     </summary>
     
+    
+      <category term="Java volatile AtomicReference" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-volatile-AtomicReference/"/>
     
   </entry>
   
@@ -137,12 +149,23 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%A5%97%E8%B7%AF/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/单例模式的几种套路/</id>
     <published>2017-03-01T12:44:14.000Z</published>
-    <updated>2017-03-01T12:44:14.839Z</updated>
+    <updated>2017-03-27T07:39:58.191Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="套路1-立即加载-instantly-initialization"><a href="#套路1-立即加载-instantly-initialization" class="headerlink" title="套路1 - 立即加载 instantly initialization"></a>套路1 - 立即加载 instantly initialization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class EagerSingleton &#123;</div><div class="line">    **private** **static** EagerSingleton instance = new EagerSingleton();</div><div class="line"></div><div class="line">    **private** EagerSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static EagerSingleton getInstance() &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路2-延迟初始化-lazy-initialization"><a href="#套路2-延迟初始化-lazy-initialization" class="headerlink" title="套路2 - 延迟初始化 lazy initialization"></a>套路2 - 延迟初始化 lazy initialization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class LazySingleton &#123;</div><div class="line"></div><div class="line">    private static LazySingleton instance;</div><div class="line"></div><div class="line">    private LazySingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static **synchronized** LazySingleton getInstance() &#123;</div><div class="line">        if (instance == null) &#123;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(1000 * 3);// mock long time init</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            instance = new LazySingleton();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路3-静态内部类-static-Holder"><a href="#套路3-静态内部类-static-Holder" class="headerlink" title="套路3 - 静态内部类 static Holder"></a>套路3 - 静态内部类 static Holder</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class InnerHolderClass &#123;</div><div class="line"></div><div class="line">    private InnerHolderClass() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static class InnerHolder &#123;</div><div class="line">        static InnerHolderClass innerHolder = new InnerHolderClass();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static InnerHolderClass getInstance() &#123;</div><div class="line">        InnerHolderClass innerHolder = InnerHolder.innerHolder;</div><div class="line"></div><div class="line">        try &#123;</div><div class="line">            Thread.sleep(3000);</div><div class="line">        &#125; catch (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return innerHolder;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路4-枚举-enum"><a href="#套路4-枚举-enum" class="headerlink" title="套路4 - 枚举 enum"></a>套路4 - 枚举 enum</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public enum EnumSingleton &#123;</div><div class="line">    SINGLE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="套路5-双重锁-double-check"><a href="#套路5-双重锁-double-check" class="headerlink" title="套路5 - 双重锁 double check"></a>套路5 - 双重锁 double check</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class DoubleCheckSingleton &#123;</div><div class="line">    //volatile is important!!!</div><div class="line">    //volatile is important!!!</div><div class="line">    //volatile is important!!!</div><div class="line">    private static **volatile** DoubleCheckSingleton instance;//volatile is important!!!</div><div class="line"></div><div class="line">    private DoubleCheckSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static DoubleCheckSingleton getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            synchronized (DoubleCheckSingleton.class) &#123;</div><div class="line">                if (null == instance) &#123;</div><div class="line">                    instance = new DoubleCheckSingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class EnhancedDoubleCheckSingleton &#123;</div><div class="line"></div><div class="line">    private static EnhancedDoubleCheckSingleton instance;</div><div class="line"></div><div class="line">    private EnhancedDoubleCheckSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //it&apos;s not the recommend way.we recommend lazy initialization inner class because the static instance field.</div><div class="line">    public static EnhancedDoubleCheckSingleton getInstance() &#123;</div><div class="line">        **EnhancedDoubleCheckSingleton tmp = instance;**</div><div class="line">        if (null == tmp) &#123;</div><div class="line">            synchronized (EnhancedDoubleCheckSingleton.class) &#123;</div><div class="line">                **tmp = instance;**</div><div class="line">                if (null == tmp) &#123;</div><div class="line">                    instance = tmp = new EnhancedDoubleCheckSingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return tmp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      &lt;h2 id=&quot;套路1-立即加载-instantly-initialization&quot;&gt;&lt;a href=&quot;#套路1-立即加载-instantly-initialization&quot; class=&quot;headerlink&quot; title=&quot;套路1 - 立即加载 instantly initi
+    
     </summary>
     
+    
+      <category term="Java 并发 设计模式" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-%E5%B9%B6%E5%8F%91-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -165,7 +188,7 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/java-%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-UncaughtExceptionHandler/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/java-线程的运行时异常处理-UncaughtExceptionHandler/</id>
     <published>2017-03-01T05:41:33.000Z</published>
-    <updated>2017-03-03T06:34:24.267Z</updated>
+    <updated>2017-03-27T07:49:34.723Z</updated>
     
     <content type="html"><![CDATA[<p><strong>Java 线程(Runnable)的异常处理, 以下的阐述均基于Runnable的线程实现</strong></p>
 <p>首先，有个问题，如果Java子线程发生异常会怎么样？实际上会导致该线程直接终止。当年自己写了个线程模型大概是这样的：</p>
@@ -207,12 +230,14 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/HashMap-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/HashMap-源码分析/</id>
     <published>2017-03-01T04:11:29.000Z</published>
-    <updated>2017-03-01T04:11:29.901Z</updated>
+    <updated>2017-03-27T07:52:01.468Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="Java HashMap 源码" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-HashMap-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
@@ -221,12 +246,14 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/CocurrentHashMap-%E6%BA%90%E7%A0%81%E8%AF%95%E8%A7%A3%E8%AF%BB/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/CocurrentHashMap-源码试解读/</id>
     <published>2017-03-01T04:11:11.000Z</published>
-    <updated>2017-03-01T04:11:11.231Z</updated>
+    <updated>2017-03-27T07:52:18.469Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="Java CocurrentHashMap 源码" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-CocurrentHashMap-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
@@ -235,12 +262,14 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/AbstractQueuedSynchronizer-AQS-%E6%BA%90%E7%A0%81%E8%AF%95%E8%A7%A3%E8%AF%BB/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/AbstractQueuedSynchronizer-AQS-源码试解读/</id>
     <published>2017-03-01T04:10:51.000Z</published>
-    <updated>2017-03-01T04:10:51.032Z</updated>
+    <updated>2017-03-27T07:52:38.689Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="AQS AbstractQueuedSynchronizer 源码" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/AQS-AbstractQueuedSynchronizer-%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
@@ -249,7 +278,7 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/%E7%94%A8Fork-And-Join%E6%A1%86%E6%9E%B6%E8%AE%A1%E7%AE%97Fibonacci%E6%95%B0%E5%88%97/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/用Fork-And-Join框架计算Fibonacci数列/</id>
     <published>2017-03-01T04:08:50.000Z</published>
-    <updated>2017-03-03T06:16:57.531Z</updated>
+    <updated>2017-03-27T07:50:46.708Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Fork And Join 的并发框架对与大型任务的分解计算是十分方便的。主要是将任务分割（fork）最后再合并（join）得到结果。<br>实际上使用了<code>分治</code>的思想。其中涉及到任务窃取算法等。</p>
@@ -270,6 +299,8 @@
     </summary>
     
     
+      <category term="Java Fork/Join 并发" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-Fork-Join-%E5%B9%B6%E5%8F%91/"/>
+    
   </entry>
   
   <entry>
@@ -277,10 +308,10 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/Java-Object%E7%9A%84-wait-notify-notifyAll-%E6%96%B9%E6%B3%95%E6%8E%A2%E7%B4%A2/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/</id>
     <published>2017-03-01T03:25:33.000Z</published>
-    <updated>2017-03-08T09:41:11.509Z</updated>
+    <updated>2017-03-27T07:49:10.895Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java <code>Object</code> 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。</p>
+<p>wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java <code>Object</code> 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="关于wait和notify-notifyAll的使用"><a href="#关于wait和notify-notifyAll的使用" class="headerlink" title="关于wait和notify/notifyAll的使用"></a>关于wait和notify/notifyAll的使用</h1><p>举个栗子，关于消费者和生产者模型，会遇到队列（共享变量）为空即没有产品和队列已满的情况；如果是不使用ArrayBlockingQueue等阻塞队列，那么就需要自己对线程间的通信，或者称之为同步。说干就干，写个demo还是不费时间的。</p>
@@ -291,7 +322,11 @@
 <p>其中</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span> (obj) &#123;</div><div class="line">   <span class="keyword">while</span> (&lt;condition does not hold&gt;)</div><div class="line">       obj.wait(timeout);</div><div class="line">   ... <span class="comment">// Perform action appropriate to condition</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这句话尤为重要。</p>
-<h1 id="wait方法的loop纠结"><a href="#wait方法的loop纠结" class="headerlink" title="wait方法的loop纠结"></a>wait方法的loop纠结</h1><h1 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a>notify和notifyAll的区别</h1><p>本文重点：</p>
+<h1 id="wait方法的loop纠结"><a href="#wait方法的loop纠结" class="headerlink" title="wait方法的loop纠结"></a>wait方法的loop纠结</h1><p>按照javadoc的解释， wait放在循环体中。but why? 很简单，因为被唤醒意味着有机会执行后续代码，但是，被唤醒的时候也应该检测是否满足条件；<br>使用while则可以在醒来之后再次检测；如果条件合适(condition hold)那么跳出循环，执行后续代码；如果不合适则再次阻塞。<br>但是使用if(condition does not hold)，则只能在进入时检测，在wait之后就没机会检测了。</p>
+<h1 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a>notify和notifyAll的区别</h1><p>notify和notifyAll都可以在改变了共享资源的情况下通知其他等待在该对象的等待队列中的线程，使其从阻塞中醒来。醒来这一步都是相同的，但是之后的就是两者的区别了。<br>具体来说，notify 将由jvm选取一个等待在该对象的线程使其醒来，并且获得锁，然后继续运行。其他线程既不会醒来，也就没有机会去竞争锁了。<br>而notifyAll则是将由jvm个等待在该对象的所有线程使其醒来，并且各自竞争锁。所以，如果时间充足并且不发生活锁的情况，那么所有线程将有机会获得锁并且运行下去。<br>举例来说，比如是这种情况，有线程A,B,C,D，同步对象S，当前BCD阻塞，A线程改变了S对象，并且分别使用notify和notifyAll，那么：<br>. notify 可能唤醒了C，而且C获取了S的锁，C可以运行下去。跟DB将保持阻塞状态。<br>. notifyAll 则是唤醒了BCD，这时候BCD同时去竞争S的锁，如果B获取了锁，那么CD将等待锁；当B释放锁之后，CD竞争该锁…</p>
+<p>接下来我们看看例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">Runnable r = new Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        synchronized (que) &#123;</div><div class="line">            while (que.size() == 0) &#123;</div><div class="line">                try &#123;</div><div class="line">                    que.wait(10000);</div><div class="line">                    System.out.println(Thread.currentThread().getId());</div><div class="line">                    Thread.sleep(1000);</div><div class="line">                &#125; catch (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">new Thread(r).start();</div><div class="line">new Thread(r).start();</div><div class="line">new Thread(r).start();</div><div class="line">new Thread(r).start();</div><div class="line">		</div><div class="line">new Thread(new Runnable() &#123; //Producer</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        synchronized (que) &#123;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(3000);</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            int nextInt = new Random().nextInt(10);</div><div class="line">            que.add(nextInt + &quot;&quot;);</div><div class="line">            System.out.println(&quot;add int &quot; + nextInt + &quot; ...&quot;);</div><div class="line">            que.notify();</div><div class="line">            System.out.println(&quot;Producer Thread &quot; + Thread.currentThread().getId() + &quot; call notifyAll &quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;).start();</div></pre></td></tr></table></figure></p>
+<p>结果是：<br>notify-&gt; 1<br>notifyAll -&gt; 2 1 3 4</p>
+<p>本文重点：</p>
 <ol>
 <li>你可以使用wait和notify函数来实现线程间通信。你可以用它们来实现多线程（&gt;3）之间的通信。</li>
 <li>永远在synchronized的函数或对象里使用wait、notify和notifyAll，不然Java虚拟机会生成 IllegalMonitorStateException。</li>
@@ -306,11 +341,13 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;wait 和 notify/notifyAll 主要是用于线程间通信的方法，他们是Java &lt;code&gt;Object&lt;/code&gt; 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。&lt;/p&gt;
+&lt;p&gt;wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java &lt;code&gt;Object&lt;/code&gt; 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
+    
+      <category term="Java 并发 多线程 通信 wait notify notifyAll" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-%E5%B9%B6%E5%8F%91-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E9%80%9A%E4%BF%A1-wait-notify-notifyAll/"/>
     
   </entry>
   
