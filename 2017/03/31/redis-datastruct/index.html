@@ -89,25 +89,25 @@
 
 
 
-<meta name="description" content="string123456PUT key valueGET keyDEL keyEXPIRE key timeTTL key
-list123456LPUSH key valueRPUSH key valueLPOP RPOPLRANGE start end
-set1234SADD key valueSREM key valueSISMEMBER key valueSMEMBERS key
-sorte">
+<meta name="description" content="Redis是一种key-value的基于内存数据结构存储系统，它可以用作数据库、缓存和消息中间件库。Redis有5种数据结构strings,lists,sets,sorted sets,hashes。
+
+strings123456PUT key valueGET keyDEL keyEXPIRE key timeTTL key
+lists123456LPUSH key valueRPUSH ke">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis datastruct">
 <meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/31/redis-datastruct/index.html">
 <meta property="og:site_name" content="If 十只橘猫九只胖">
-<meta property="og:description" content="string123456PUT key valueGET keyDEL keyEXPIRE key timeTTL key
-list123456LPUSH key valueRPUSH key valueLPOP RPOPLRANGE start end
-set1234SADD key valueSREM key valueSISMEMBER key valueSMEMBERS key
-sorte">
-<meta property="og:updated_time" content="2017-03-31T08:28:43.411Z">
+<meta property="og:description" content="Redis是一种key-value的基于内存数据结构存储系统，它可以用作数据库、缓存和消息中间件库。Redis有5种数据结构strings,lists,sets,sorted sets,hashes。
+
+strings123456PUT key valueGET keyDEL keyEXPIRE key timeTTL key
+lists123456LPUSH key valueRPUSH ke">
+<meta property="og:updated_time" content="2017-04-01T06:41:35.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis datastruct">
-<meta name="twitter:description" content="string123456PUT key valueGET keyDEL keyEXPIRE key timeTTL key
-list123456LPUSH key valueRPUSH key valueLPOP RPOPLRANGE start end
-set1234SADD key valueSREM key valueSISMEMBER key valueSMEMBERS key
-sorte">
+<meta name="twitter:description" content="Redis是一种key-value的基于内存数据结构存储系统，它可以用作数据库、缓存和消息中间件库。Redis有5种数据结构strings,lists,sets,sorted sets,hashes。
+
+strings123456PUT key valueGET keyDEL keyEXPIRE key timeTTL key
+lists123456LPUSH key valueRPUSH ke">
 
 
 
@@ -336,6 +336,28 @@ sorte">
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NoSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">NoSQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -382,11 +404,15 @@ sorte">
       
 
       
-        <h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PUT key value</div><div class="line">GET key</div><div class="line">DEL key</div><div class="line"></div><div class="line">EXPIRE key time</div><div class="line">TTL key</div></pre></td></tr></table></figure>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">LPUSH key value</div><div class="line">RPUSH key value</div><div class="line">LPOP </div><div class="line">RPOP</div><div class="line">LRANGE start end</div></pre></td></tr></table></figure>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SADD key value</div><div class="line">SREM key value</div><div class="line">SISMEMBER key value</div><div class="line">SMEMBERS key</div></pre></td></tr></table></figure>
-<h3 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted set"></a>sorted set</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">HSET user:1000 name Rick</div><div class="line">HSET user:1000 age 38</div><div class="line">HSET user:1000 email &quot;rick@amc.com&quot;</div><div class="line"></div><div class="line">HGETALL user:1000 </div><div class="line">	=&gt; 1) &quot;name&quot;</div><div class="line">	2) &quot;Rick&quot;</div><div class="line">	3) &quot;age&quot;</div><div class="line">	4) &quot;38&quot;</div><div class="line">	5) &quot;email&quot;</div><div class="line">	6) &quot;rick@gmail.com&quot;</div><div class="line">HGET user:1000 name =&gt; Rick</div><div class="line"></div><div class="line">HINCRBY user:1000 age 1=&gt; integer 39</div><div class="line">HINCRBY user:1000 age 11=&gt; integer 50</div><div class="line">HDEL user:1000 age</div><div class="line">HINCRBY user:1000 age 11=&gt; integer 11</div><div class="line"></div><div class="line">HMSET user:1000 name Rick age 38 email rick@amc.com</div></pre></td></tr></table></figure>
-<h3 id="hashes"><a href="#hashes" class="headerlink" title="hashes"></a>hashes</h3>
+        <blockquote>
+<p>Redis是一种key-value的基于内存数据结构存储系统，它可以用作<code>数据库</code>、<code>缓存</code>和<code>消息中间件库</code>。Redis有5种数据结构<code>strings</code>,<code>lists</code>,<code>sets</code>,<code>sorted sets</code>,<code>hashes</code>。</p>
+</blockquote>
+<h3 id="strings"><a href="#strings" class="headerlink" title="strings"></a><code>strings</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PUT key value</div><div class="line">GET key</div><div class="line">DEL key</div><div class="line"></div><div class="line">EXPIRE key time</div><div class="line">TTL key</div></pre></td></tr></table></figure>
+<h3 id="lists"><a href="#lists" class="headerlink" title="lists"></a><code>lists</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">LPUSH key value</div><div class="line">RPUSH key value</div><div class="line">LPOP </div><div class="line">RPOP</div><div class="line">LRANGE start end</div></pre></td></tr></table></figure>
+<h3 id="sets"><a href="#sets" class="headerlink" title="sets"></a><code>sets</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SADD key value</div><div class="line">SREM key value</div><div class="line">SISMEMBER key value</div><div class="line">SMEMBERS key</div></pre></td></tr></table></figure>
+<h3 id="sorted-sets"><a href="#sorted-sets" class="headerlink" title="sorted sets"></a><code>sorted sets</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ZADD hackers 2 Bob</div><div class="line">ZADD hackers 1 Alan</div><div class="line">ZADD hackers 1 Zbra</div><div class="line"></div><div class="line">ZRANGE hackers 0 -1</div></pre></td></tr></table></figure>
+<h3 id="hashes"><a href="#hashes" class="headerlink" title="hashes"></a><code>hashes</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">HSET user:1000 name Rick</div><div class="line">HSET user:1000 age 38</div><div class="line">HSET user:1000 email &quot;rick@amc.com&quot;</div><div class="line"></div><div class="line">HGETALL user:1000 </div><div class="line">	=&gt; 1) &quot;name&quot;</div><div class="line">	2) &quot;Rick&quot;</div><div class="line">	3) &quot;age&quot;</div><div class="line">	4) &quot;38&quot;</div><div class="line">	5) &quot;email&quot;</div><div class="line">	6) &quot;rick@gmail.com&quot;</div><div class="line">HGET user:1000 name =&gt; Rick</div><div class="line"></div><div class="line">HINCRBY user:1000 age 1=&gt; integer 39</div><div class="line">HINCRBY user:1000 age 11=&gt; integer 50</div><div class="line">HDEL user:1000 age</div><div class="line">HINCRBY user:1000 age 11=&gt; integer 11</div><div class="line"></div><div class="line">HMSET user:1000 name Rick age 38 email rick@amc.com</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -515,7 +541,7 @@ sorte">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -613,7 +639,7 @@ sorte">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">1.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list"><span class="nav-number">2.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">3.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted-set"><span class="nav-number">4.</span> <span class="nav-text">sorted set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashes"><span class="nav-number">5.</span> <span class="nav-text">hashes</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#strings"><span class="nav-number">1.</span> <span class="nav-text">strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lists"><span class="nav-number">2.</span> <span class="nav-text">lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sets"><span class="nav-number">3.</span> <span class="nav-text">sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted-sets"><span class="nav-number">4.</span> <span class="nav-text">sorted sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashes"><span class="nav-number">5.</span> <span class="nav-text">hashes</span></a></li></ol></div>
             
 
           </div>
