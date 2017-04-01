@@ -5,7 +5,7 @@
   <link href="//atom.xml" rel="self"/>
   
   <link href="git@git.coding.net:yb007/yb007.coding.me.git/"/>
-  <updated>2017-03-27T07:48:02.078Z</updated>
+  <updated>2017-03-31T08:28:43.411Z</updated>
   <id>git@git.coding.net:yb007/yb007.coding.me.git/</id>
   
   <author>
@@ -14,6 +14,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis datastruct</title>
+    <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/31/redis-datastruct/"/>
+    <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/31/redis-datastruct/</id>
+    <published>2017-03-31T08:07:35.000Z</published>
+    <updated>2017-03-31T08:28:43.411Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PUT key value</div><div class="line">GET key</div><div class="line">DEL key</div><div class="line"></div><div class="line">EXPIRE key time</div><div class="line">TTL key</div></pre></td></tr></table></figure>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">LPUSH key value</div><div class="line">RPUSH key value</div><div class="line">LPOP </div><div class="line">RPOP</div><div class="line">LRANGE start end</div></pre></td></tr></table></figure>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SADD key value</div><div class="line">SREM key value</div><div class="line">SISMEMBER key value</div><div class="line">SMEMBERS key</div></pre></td></tr></table></figure>
+<h3 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted set"></a>sorted set</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">HSET user:1000 name Rick</div><div class="line">HSET user:1000 age 38</div><div class="line">HSET user:1000 email &quot;rick@amc.com&quot;</div><div class="line"></div><div class="line">HGETALL user:1000 </div><div class="line">	=&gt; 1) &quot;name&quot;</div><div class="line">	2) &quot;Rick&quot;</div><div class="line">	3) &quot;age&quot;</div><div class="line">	4) &quot;38&quot;</div><div class="line">	5) &quot;email&quot;</div><div class="line">	6) &quot;rick@gmail.com&quot;</div><div class="line">HGET user:1000 name =&gt; Rick</div><div class="line"></div><div class="line">HINCRBY user:1000 age 1=&gt; integer 39</div><div class="line">HINCRBY user:1000 age 11=&gt; integer 50</div><div class="line">HDEL user:1000 age</div><div class="line">HINCRBY user:1000 age 11=&gt; integer 11</div><div class="line"></div><div class="line">HMSET user:1000 name Rick age 38 email rick@amc.com</div></pre></td></tr></table></figure>
+<h3 id="hashes"><a href="#hashes" class="headerlink" title="hashes"></a>hashes</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;string&quot;&gt;&lt;a href=&quot;#string&quot; class=&quot;headerlink&quot; title=&quot;string&quot;&gt;&lt;/a&gt;string&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+    
+    </summary>
+    
+    
+      <category term="redis" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之策略模式</title>
+    <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/27/设计模式之策略模式/</id>
+    <published>2017-03-27T08:47:07.000Z</published>
+    <updated>2017-03-28T02:10:39.898Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>学习设计模式一定要学会看和画类图。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;学习设计模式一定要学会看和画类图。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+    
+    </summary>
+    
+      <category term="设计模式Design Pattern" scheme="git@git.coding.net:yb007/yb007.coding.me.git/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FDesign-Pattern/"/>
+    
+    
+      <category term="设计模式" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="策略模式" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序</title>
+    <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/27/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/27/快速排序/</id>
+    <published>2017-03-27T08:36:17.000Z</published>
+    <updated>2017-03-27T08:38:24.024Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">       <span class="keyword">int</span> l = start;</div><div class="line">       <span class="keyword">int</span> h = end;</div><div class="line">       <span class="keyword">if</span> (l &gt;= h) <span class="keyword">return</span>;</div><div class="line">       <span class="keyword">int</span> pivot = arr[start];</div><div class="line"></div><div class="line">       <span class="keyword">while</span> (l &lt; h) &#123;</div><div class="line">           <span class="keyword">while</span> (l &lt; h &amp;&amp; pivot &lt; arr[h]) h--;</div><div class="line">           <span class="keyword">if</span> (l &lt; h) arr[l] = arr[h];</div><div class="line"></div><div class="line">           <span class="keyword">while</span> (l &lt; h &amp;&amp; pivot &gt; arr[l]) l++;</div><div class="line">           <span class="keyword">if</span> (l &lt; h) arr[h] = arr[l];</div><div class="line">       &#125;</div><div class="line">       arr[h] = pivot;</div><div class="line"></div><div class="line">       quickSort(arr, start, h - <span class="number">1</span>);</div><div class="line">       quickSort(arr, h + <span class="number">1</span>, end);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div
+    
+    </summary>
+    
+      <category term="算法" scheme="git@git.coding.net:yb007/yb007.coding.me.git/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="排序" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="算法" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Vim 正则表达式入门</title>
@@ -47,11 +126,13 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/14/JUC-ArrayBlockingQueue-%E5%88%86%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%E8%87%AA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%BD%91%EF%BC%89/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/14/JUC-ArrayBlockingQueue-分析（转载自并发编程网）/</id>
     <published>2017-03-14T07:53:57.000Z</published>
-    <updated>2017-03-27T07:51:47.285Z</updated>
+    <updated>2017-03-27T08:16:14.659Z</updated>
     
     <summary type="html">
     
     </summary>
+    
+      <category term="Java" scheme="git@git.coding.net:yb007/yb007.coding.me.git/categories/Java/"/>
     
     
       <category term="Java 并发 源码" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-%E5%B9%B6%E5%8F%91-%E6%BA%90%E7%A0%81/"/>
@@ -278,14 +359,14 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/%E7%94%A8Fork-And-Join%E6%A1%86%E6%9E%B6%E8%AE%A1%E7%AE%97Fibonacci%E6%95%B0%E5%88%97/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/用Fork-And-Join框架计算Fibonacci数列/</id>
     <published>2017-03-01T04:08:50.000Z</published>
-    <updated>2017-03-27T07:50:46.708Z</updated>
+    <updated>2017-03-31T02:26:09.052Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Fork And Join 的并发框架对与大型任务的分解计算是十分方便的。主要是将任务分割（fork）最后再合并（join）得到结果。<br>实际上使用了<code>分治</code>的思想。其中涉及到任务窃取算法等。</p>
 </blockquote>
 <p>以下是一个计算Fibonacci数列的Demo,使用BigInteger是为了避免溢出，但是计算效率大大降低，可以用Long类型代替。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">package com.tw;</div><div class="line"></div><div class="line">import java.math.BigInteger;</div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line">import java.util.concurrent.RecursiveTask;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rick on 2017/2/27.</div><div class="line"> */</div><div class="line">public class ForkAndJoinTest extends RecursiveTask&lt;BigInteger&gt; &#123;</div><div class="line">    private int num;</div><div class="line">    private Map&lt;BigInteger, BigInteger&gt; intermediateResult;</div><div class="line"></div><div class="line">    public ForkAndJoinTest(int num, Map&lt;BigInteger, BigInteger&gt; map) &#123;</div><div class="line">        this.num = num;</div><div class="line">        intermediateResult = map;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line"></div><div class="line">    protected BigInteger compute() &#123;</div><div class="line">        if (num == 2)</div><div class="line">            return BigInteger.valueOf(1);</div><div class="line">        if (num == 1)</div><div class="line">            return BigInteger.valueOf(1);</div><div class="line">        if (num == 0)</div><div class="line">            return BigInteger.valueOf(0);</div><div class="line"></div><div class="line">        BigInteger lr, rr;</div><div class="line">        int i = num - 1;</div><div class="line">        int i1 = num - 2;</div><div class="line">        lr = getBigInteger(i);</div><div class="line">        rr = getBigInteger(i1);</div><div class="line"></div><div class="line">        return lr.add(rr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">    * 使用map缓存计算结果</div><div class="line">    */</div><div class="line">    private BigInteger getBigInteger(int i) &#123;</div><div class="line">        BigInteger lr;</div><div class="line">        if (null != intermediateResult.get(i))</div><div class="line">            lr = intermediateResult.get(i);//cacha number</div><div class="line">        else &#123;</div><div class="line">            ForkAndJoinTest join1 = new ForkAndJoinTest(i, intermediateResult);</div><div class="line">            join1.fork();</div><div class="line">            lr = join1.join();</div><div class="line">            intermediateResult.put(BigInteger.valueOf(i), lr);</div><div class="line">        &#125;</div><div class="line">        return lr;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public ForkAndJoinTest() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">//        1,1,2,3,5,8,13,21</div><div class="line">        Map&lt;BigInteger, BigInteger&gt; map = new HashMap&lt;&gt;();</div><div class="line">        for (int i = 0; i &lt; 90; i++) &#123;</div><div class="line"></div><div class="line">            ForkAndJoinTest faj = new ForkAndJoinTest(i, map);</div><div class="line">            faj.fork();</div><div class="line">            BigInteger join = faj.join();</div><div class="line">            System.out.println(&quot;#&quot; + i + &quot; &quot; + join);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">package com.tw;</div><div class="line"></div><div class="line">import java.math.BigInteger;</div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line">import java.util.concurrent.RecursiveTask;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rick on 2017/2/27.</div><div class="line"> */</div><div class="line">public class ForkAndJoinTest extends RecursiveTask&lt;BigInteger&gt; &#123;</div><div class="line">    private int num;</div><div class="line">    private Map&lt;BigInteger, BigInteger&gt; intermediateResult;</div><div class="line"></div><div class="line">    public ForkAndJoinTest(int num, Map&lt;BigInteger, BigInteger&gt; map) &#123;</div><div class="line">        this.num = num;</div><div class="line">        intermediateResult = map;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line"></div><div class="line">    protected BigInteger compute() &#123;</div><div class="line">        if (num == 2)</div><div class="line">            return BigInteger.valueOf(1);</div><div class="line">        if (num == 1)</div><div class="line">            return BigInteger.valueOf(1);</div><div class="line">        if (num == 0)</div><div class="line">            return BigInteger.valueOf(0);</div><div class="line"></div><div class="line">        BigInteger lr, rr;</div><div class="line">        int i = num - 1;</div><div class="line">        int i1 = num - 2;</div><div class="line">        lr = getBigInteger(i);</div><div class="line">        rr = getBigInteger(i1);</div><div class="line"></div><div class="line">        return lr.add(rr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">    * 使用map缓存计算结果</div><div class="line">    */</div><div class="line">    private BigInteger getBigInteger(int i) &#123;</div><div class="line">        BigInteger lr;</div><div class="line">        if (null != intermediateResult.get(i))</div><div class="line">            lr = intermediateResult.get(i);//cacha number</div><div class="line">        else &#123;</div><div class="line">            ForkAndJoinTest join1 = new ForkAndJoinTest(i, intermediateResult);</div><div class="line">            join1.fork();</div><div class="line">            lr = join1.join();</div><div class="line">            intermediateResult.put(BigInteger.valueOf(i), lr);</div><div class="line">        &#125;</div><div class="line">        return lr;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public ForkAndJoinTest() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">//        1,1,2,3,5,8,13,21</div><div class="line">        Map&lt;BigInteger, BigInteger&gt; map = new HashMap&lt;&gt;();</div><div class="line">        for (int i = 0; i &lt; 90; i++) &#123;</div><div class="line"></div><div class="line">            ForkAndJoinTest faj = new ForkAndJoinTest(i, map);</div><div class="line">			ForkJoinPool pool = new ForkJoinPool();</div><div class="line">			BigInteger rs = pool.invoke(faj);</div><div class="line">            System.out.println(&quot;#&quot; + i + &quot; &quot; + rs);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>举一反三，例如计算1+2+…+n就可以使用这种多线程模型，假设1+2比较耗时的话。</p>
 ]]></content>
     
@@ -308,7 +389,7 @@
     <link href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/Java-Object%E7%9A%84-wait-notify-notifyAll-%E6%96%B9%E6%B3%95%E6%8E%A2%E7%B4%A2/"/>
     <id>git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/Java-Object的-wait-notify-notifyAll-方法探索/</id>
     <published>2017-03-01T03:25:33.000Z</published>
-    <updated>2017-03-27T07:49:10.895Z</updated>
+    <updated>2017-03-27T07:58:40.189Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>wait 和 notify/notifyAll 主要是用于线程间通信的方法，即信号量的通信方法。他们是Java <code>Object</code> 的实例方法，所以可以用于各种引用类型。由于wait和notify/notifyAll必须在获取到monitor（锁）的区域内使用，所以，我们更多的是使用synchronized锁住线程共享的变量，并且在共享变量上做线程间通信。</p>
@@ -347,7 +428,19 @@
     </summary>
     
     
-      <category term="Java 并发 多线程 通信 wait notify notifyAll" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-%E5%B9%B6%E5%8F%91-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E9%80%9A%E4%BF%A1-wait-notify-notifyAll/"/>
+      <category term="Java" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/Java/"/>
+    
+      <category term="并发" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+      <category term="多线程" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="通信" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/%E9%80%9A%E4%BF%A1/"/>
+    
+      <category term="wait" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/wait/"/>
+    
+      <category term="notify" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/notify/"/>
+    
+      <category term="notifyAll" scheme="git@git.coding.net:yb007/yb007.coding.me.git/tags/notifyAll/"/>
     
   </entry>
   
