@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="redis," />
 
 
 
@@ -89,15 +89,55 @@
 
 
 
-<meta name="description" content="RickyDuoli">
-<meta property="og:type" content="website">
-<meta property="og:title" content="If 十只橘猫九只胖">
-<meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/archives/index.html">
+<meta name="description" content="文章摘抄自redis中文官网
+
+文中关键字：
+- 分布式概念
+- 集群
+- 一致性特征
+- 分区
+- 一致性哈希，哈希槽
+- 主从复制模型
+- 集群是用了异步复制
+- 网络分区？
+- CAP理论？
+Redis 集群是一个提供在多个Redis间节点间共享数据的程序集。Redis集群并不支持处理多个keys的命令??Redis的网络分区？Redis 集群通过**分区**来提供一定程度的可用性
+Red">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis 集群相关（摘抄）">
+<meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/01/redis-集群相关（摘抄）/index.html">
 <meta property="og:site_name" content="If 十只橘猫九只胖">
-<meta property="og:description" content="RickyDuoli">
+<meta property="og:description" content="文章摘抄自redis中文官网
+
+文中关键字：
+- 分布式概念
+- 集群
+- 一致性特征
+- 分区
+- 一致性哈希，哈希槽
+- 主从复制模型
+- 集群是用了异步复制
+- 网络分区？
+- CAP理论？
+Redis 集群是一个提供在多个Redis间节点间共享数据的程序集。Redis集群并不支持处理多个keys的命令??Redis的网络分区？Redis 集群通过**分区**来提供一定程度的可用性
+Red">
+<meta property="og:updated_time" content="2017-04-05T02:39:33.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="If 十只橘猫九只胖">
-<meta name="twitter:description" content="RickyDuoli">
+<meta name="twitter:title" content="redis 集群相关（摘抄）">
+<meta name="twitter:description" content="文章摘抄自redis中文官网
+
+文中关键字：
+- 分布式概念
+- 集群
+- 一致性特征
+- 分区
+- 一致性哈希，哈希槽
+- 主从复制模型
+- 集群是用了异步复制
+- 网络分区？
+- CAP理论？
+Redis 集群是一个提供在多个Redis间节点间共享数据的程序集。Redis集群并不支持处理多个keys的命令??Redis的网络分区？Redis 集群通过**分区**来提供一定程度的可用性
+Red">
 
 
 
@@ -125,13 +165,13 @@
 
 
 
-  <link rel="canonical" href="git@git.coding.net:yb007/yb007.coding.me.git/archives/"/>
+  <link rel="canonical" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/01/redis-集群相关（摘抄）/"/>
 
 
 
 
 
-  <title> 归档 | If 十只橘猫九只胖 </title>
+  <title> redis 集群相关（摘抄） | If 十只橘猫九只胖 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -175,7 +215,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,403 +309,215 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 18 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/01/redis-集群相关（摘抄）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rick Ho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="If 十只橘猫九只胖">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                redis 集群相关（摘抄）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-01T14:53:08+08:00">
+                2017-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NoSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">NoSQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/01/redis-集群相关（摘抄）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/01/redis-集群相关（摘抄）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/01/redis-集群相关（摘抄）/" class="leancloud_visitors" data-flag-title="redis 集群相关（摘抄）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>文章摘抄自<a href="http://www.redis.cn/topics/cluster-tutorial.html" target="_blank" rel="external">redis中文官网</a></p>
+</blockquote>
+<p>文中关键字：</p>
+<pre><code>- 分布式概念
+- 集群
+- 一致性特征
+- 分区
+- 一致性哈希，哈希槽
+- 主从复制模型
+- 集群是用了异步复制
+- 网络分区？
+- CAP理论？
+</code></pre><p>Redis 集群是一个提供在多个Redis间节点间共享数据的程序集。<br>Redis集群并不支持处理多个keys的命令??<br>Redis的网络分区？<br>Redis 集群通过<code>**分区**</code>来提供一定程度的可用性</p>
+<p>Redis 集群的优势:</p>
+<ol>
+<li>自动分割数据到不同的节点上。</li>
+<li>整个集群的部分节点失败或者不可达的情况下能够继续处理命令。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/31/redis-datastruct/" rel="next" title="redis datastruct">
+                <i class="fa fa-chevron-left"></i> redis datastruct
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/10/OOM详解/" itemprop="url">
-              
-                <span itemprop="name">OOM详解</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/10/OOM详解/" rel="prev" title="OOM详解">
+                OOM详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-10T11:16:58+08:00"
-              content="2017-04-10" >
-          04-10
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/01/redis-集群相关（摘抄）/" itemprop="url">
-              
-                <span itemprop="name">redis 集群相关（摘抄）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-01T14:53:08+08:00"
-              content="2017-04-01" >
-          04-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/31/redis-datastruct/" itemprop="url">
-              
-                <span itemprop="name">redis datastruct</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-31T16:07:35+08:00"
-              content="2017-03-31" >
-          03-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/27/设计模式之策略模式/" itemprop="url">
-              
-                <span itemprop="name">设计模式之策略模式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-27T16:47:07+08:00"
-              content="2017-03-27" >
-          03-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/27/快速排序/" itemprop="url">
-              
-                <span itemprop="name">快速排序</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-27T16:36:17+08:00"
-              content="2017-03-27" >
-          03-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/Vim-正则表达式入门/" itemprop="url">
-              
-                <span itemprop="name">Vim 正则表达式入门</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-15T17:17:45+08:00"
-              content="2017-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/14/JUC-ArrayBlockingQueue-分析（转载自并发编程网）/" itemprop="url">
-              
-                <span itemprop="name">JUC ArrayBlockingQueue 分析（转载自并发编程网）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-14T15:53:57+08:00"
-              content="2017-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/" itemprop="url">
-              
-                <span itemprop="name">聊聊并发-Java中的Copy-On-Write容器(转载自并发网)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-08T11:35:29+08:00"
-              content="2017-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/" itemprop="url">
-              
-                <span itemprop="name">JUC 的原子操作类AtomicReference & 与volatile的区别</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-02T12:52:19+08:00"
-              content="2017-03-02" >
-          03-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/01/分离任务与多线程的封装/" itemprop="url">
-              
-                <span itemprop="name">分离任务与多线程的封装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-01T20:44:57+08:00"
-              content="2017-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
           
           </div>
@@ -673,6 +525,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/01/redis-集群相关（摘抄）/"
+           data-title="redis 集群相关（摘抄）" data-url="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/01/redis-集群相关（摘抄）/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -910,11 +770,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   

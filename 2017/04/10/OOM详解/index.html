@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JVM,OutOfMemory," />
 
 
 
@@ -89,15 +89,22 @@
 
 
 
-<meta name="description" content="RickyDuoli">
-<meta property="og:type" content="website">
-<meta property="og:title" content="If 十只橘猫九只胖">
-<meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/archives/index.html">
+<meta name="description" content="OOM(OutOfMemory)是每个Javaer应该明白的东西，以前我遇到的时候就search it并调整JVM启动参数，但是具体怎么回事嘛？知道学习了并发和JVM才真正明白。
+永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)我们先来认识OOM发生的时机，写一段如下代码，不断动态地创建PermTestClass类（不是对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOM详解">
+<meta property="og:url" content="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/10/OOM详解/index.html">
 <meta property="og:site_name" content="If 十只橘猫九只胖">
-<meta property="og:description" content="RickyDuoli">
+<meta property="og:description" content="OOM(OutOfMemory)是每个Javaer应该明白的东西，以前我遇到的时候就search it并调整JVM启动参数，但是具体怎么回事嘛？知道学习了并发和JVM才真正明白。
+永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)我们先来认识OOM发生的时机，写一段如下代码，不断动态地创建PermTestClass类（不是对">
+<meta property="og:image" content="git@git.coding.net:yb007/yb007.coding.me.git/../../OOM_Perm0.PNG">
+<meta property="og:image" content="git@git.coding.net:yb007/yb007.coding.me.git/../../OOM_Perm.PNG">
+<meta property="og:updated_time" content="2017-04-10T03:38:44.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="If 十只橘猫九只胖">
-<meta name="twitter:description" content="RickyDuoli">
+<meta name="twitter:title" content="OOM详解">
+<meta name="twitter:description" content="OOM(OutOfMemory)是每个Javaer应该明白的东西，以前我遇到的时候就search it并调整JVM启动参数，但是具体怎么回事嘛？知道学习了并发和JVM才真正明白。
+永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)我们先来认识OOM发生的时机，写一段如下代码，不断动态地创建PermTestClass类（不是对">
+<meta name="twitter:image" content="git@git.coding.net:yb007/yb007.coding.me.git/../../OOM_Perm0.PNG">
 
 
 
@@ -125,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="git@git.coding.net:yb007/yb007.coding.me.git/archives/"/>
+  <link rel="canonical" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/10/OOM详解/"/>
 
 
 
 
 
-  <title> 归档 | If 十只橘猫九只胖 </title>
+  <title> OOM详解 | If 十只橘猫九只胖 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -175,7 +182,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,403 +276,200 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 18 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/10/OOM详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rick Ho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="If 十只橘猫九只胖">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                OOM详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T11:16:58+08:00">
+                2017-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/10/OOM详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/10/OOM详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/10/OOM详解/" class="leancloud_visitors" data-flag-title="OOM详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>OOM(OutOfMemory)是每个Javaer应该明白的东西，以前我遇到的时候就search it并调整JVM启动参数，但是具体怎么回事嘛？知道学习了并发和JVM才真正明白。</p>
+<h2 id="永久区内存溢出-Caused-by-java-lang-OutOfMemoryError-PermGen-space"><a href="#永久区内存溢出-Caused-by-java-lang-OutOfMemoryError-PermGen-space" class="headerlink" title="永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)"></a>永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)</h2><p>我们先来认识OOM发生的时机，写一段如下代码，不断动态地创建PermTestClass类（不是对象）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//省略类定义</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        test();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            Enhancer enhancer = <span class="keyword">new</span> Enhancer();</div><div class="line">            enhancer.setSuperclass(PermTestClass.class);</div><div class="line">            enhancer.setUseCache(<span class="keyword">false</span>);</div><div class="line">            enhancer.setCallback(<span class="keyword">new</span> MethodInterceptor() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args,</span></span></div><div class="line">                                        MethodProxy proxy) <span class="keyword">throws</span> Throwable &#123;</div><div class="line">                    System.out.println(<span class="string">"test"</span>);</div><div class="line">                    <span class="keyword">return</span> proxy.invoke(obj, args);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            enhancer.create();<span class="comment">//动态的创建一个PermTestClass类（不是对象）。</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">PermTestClass</span> </span>&#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>运行之，讲道理的话一会就会OOM。不过有个前提，PermSize应该设置的比较小，才容易观察到。否则，甚至是不会OOM，如果GC（垃圾回收）够快的话。</p>
+<p>运行结果：<br><img src="../../OOM_Perm0.PNG" alt="code module"></p>
+<p>运行开始时，使用jps来查看运行的java进程，然后使用jstat查看gc情况。<br><img src="../../OOM_Perm.PNG" alt="code module"></p>
+<p>## </p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+            <a href="/tags/OutOfMemory/" rel="tag"># OutOfMemory</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/01/redis-集群相关（摘抄）/" rel="next" title="redis 集群相关（摘抄）">
+                <i class="fa fa-chevron-left"></i> redis 集群相关（摘抄）
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/10/OOM详解/" itemprop="url">
-              
-                <span itemprop="name">OOM详解</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-10T11:16:58+08:00"
-              content="2017-04-10" >
-          04-10
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/01/redis-集群相关（摘抄）/" itemprop="url">
-              
-                <span itemprop="name">redis 集群相关（摘抄）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-01T14:53:08+08:00"
-              content="2017-04-01" >
-          04-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/31/redis-datastruct/" itemprop="url">
-              
-                <span itemprop="name">redis datastruct</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-31T16:07:35+08:00"
-              content="2017-03-31" >
-          03-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/27/设计模式之策略模式/" itemprop="url">
-              
-                <span itemprop="name">设计模式之策略模式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-27T16:47:07+08:00"
-              content="2017-03-27" >
-          03-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/27/快速排序/" itemprop="url">
-              
-                <span itemprop="name">快速排序</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-27T16:36:17+08:00"
-              content="2017-03-27" >
-          03-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/15/Vim-正则表达式入门/" itemprop="url">
-              
-                <span itemprop="name">Vim 正则表达式入门</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-15T17:17:45+08:00"
-              content="2017-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/14/JUC-ArrayBlockingQueue-分析（转载自并发编程网）/" itemprop="url">
-              
-                <span itemprop="name">JUC ArrayBlockingQueue 分析（转载自并发编程网）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-14T15:53:57+08:00"
-              content="2017-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/08/聊聊并发-Java中的Copy-On-Write容器-转载自并发网/" itemprop="url">
-              
-                <span itemprop="name">聊聊并发-Java中的Copy-On-Write容器(转载自并发网)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-08T11:35:29+08:00"
-              content="2017-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/02/JUC-的原子操作类AtomicReference-与volatile的区别/" itemprop="url">
-              
-                <span itemprop="name">JUC 的原子操作类AtomicReference & 与volatile的区别</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-02T12:52:19+08:00"
-              content="2017-03-02" >
-          03-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/01/分离任务与多线程的封装/" itemprop="url">
-              
-                <span itemprop="name">分离任务与多线程的封装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-01T20:44:57+08:00"
-              content="2017-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
           
           </div>
@@ -673,6 +477,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/10/OOM详解/"
+           data-title="OOM详解" data-url="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/10/OOM详解/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -692,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -806,6 +627,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#永久区内存溢出-Caused-by-java-lang-OutOfMemoryError-PermGen-space"><span class="nav-number">1.</span> <span class="nav-text">永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -910,11 +747,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   

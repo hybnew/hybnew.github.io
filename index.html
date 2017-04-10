@@ -281,6 +281,351 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/10/OOM详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rick Ho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="If 十只橘猫九只胖">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/10/OOM详解/" itemprop="url">
+                  OOM详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T11:16:58+08:00">
+                2017-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/10/OOM详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/10/OOM详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/10/OOM详解/" class="leancloud_visitors" data-flag-title="OOM详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>OOM(OutOfMemory)是每个Javaer应该明白的东西，以前我遇到的时候就search it并调整JVM启动参数，但是具体怎么回事嘛？知道学习了并发和JVM才真正明白。</p>
+<h2 id="永久区内存溢出-Caused-by-java-lang-OutOfMemoryError-PermGen-space"><a href="#永久区内存溢出-Caused-by-java-lang-OutOfMemoryError-PermGen-space" class="headerlink" title="永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)"></a>永久区内存溢出(Caused  by: java.lang.OutOfMemoryError: PermGen space)</h2><p>我们先来认识OOM发生的时机，写一段如下代码，不断动态地创建PermTestClass类（不是对象）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//省略类定义</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        test();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            Enhancer enhancer = <span class="keyword">new</span> Enhancer();</div><div class="line">            enhancer.setSuperclass(PermTestClass.class);</div><div class="line">            enhancer.setUseCache(<span class="keyword">false</span>);</div><div class="line">            enhancer.setCallback(<span class="keyword">new</span> MethodInterceptor() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args,</span></span></div><div class="line">                                        MethodProxy proxy) <span class="keyword">throws</span> Throwable &#123;</div><div class="line">                    System.out.println(<span class="string">"test"</span>);</div><div class="line">                    <span class="keyword">return</span> proxy.invoke(obj, args);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            enhancer.create();<span class="comment">//动态的创建一个PermTestClass类（不是对象）。</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">PermTestClass</span> </span>&#123;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>运行之，讲道理的话一会就会OOM。不过有个前提，PermSize应该设置的比较小，才容易观察到。否则，甚至是不会OOM，如果GC（垃圾回收）够快的话。</p>
+<p>运行结果：<br><img src="../../OOM_Perm0.PNG" alt="code module"></p>
+<p>运行开始时，使用jps来查看运行的java进程，然后使用jstat查看gc情况。<br><img src="../../OOM_Perm.PNG" alt="code module"></p>
+<p>## </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/04/01/redis-集群相关（摘抄）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rick Ho">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="If 十只橘猫九只胖">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/01/redis-集群相关（摘抄）/" itemprop="url">
+                  redis 集群相关（摘抄）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-01T14:53:08+08:00">
+                2017-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NoSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">NoSQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/01/redis-集群相关（摘抄）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/01/redis-集群相关（摘抄）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/01/redis-集群相关（摘抄）/" class="leancloud_visitors" data-flag-title="redis 集群相关（摘抄）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>文章摘抄自<a href="http://www.redis.cn/topics/cluster-tutorial.html" target="_blank" rel="external">redis中文官网</a></p>
+</blockquote>
+<p>文中关键字：</p>
+<pre><code>- 分布式概念
+- 集群
+- 一致性特征
+- 分区
+- 一致性哈希，哈希槽
+- 主从复制模型
+- 集群是用了异步复制
+- 网络分区？
+- CAP理论？
+</code></pre><p>Redis 集群是一个提供在多个Redis间节点间共享数据的程序集。<br>Redis集群并不支持处理多个keys的命令??<br>Redis的网络分区？<br>Redis 集群通过<code>**分区**</code>来提供一定程度的可用性</p>
+<p>Redis 集群的优势:</p>
+<ol>
+<li>自动分割数据到不同的节点上。</li>
+<li>整个集群的部分节点失败或者不可达的情况下能够继续处理命令。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/31/redis-datastruct/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1125,6 +1470,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1492,287 +1859,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/单例模式的几种套路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rick Ho">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="If 十只橘猫九只胖">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/单例模式的几种套路/" itemprop="url">
-                  单例模式的几种套路
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T20:44:14+08:00">
-                2017-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/01/单例模式的几种套路/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/单例模式的几种套路/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/03/01/单例模式的几种套路/" class="leancloud_visitors" data-flag-title="单例模式的几种套路">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="套路1-立即加载-instantly-initialization"><a href="#套路1-立即加载-instantly-initialization" class="headerlink" title="套路1 - 立即加载 instantly initialization"></a>套路1 - 立即加载 instantly initialization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class EagerSingleton &#123;</div><div class="line">    **private** **static** EagerSingleton instance = new EagerSingleton();</div><div class="line"></div><div class="line">    **private** EagerSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static EagerSingleton getInstance() &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="套路2-延迟初始化-lazy-initialization"><a href="#套路2-延迟初始化-lazy-initialization" class="headerlink" title="套路2 - 延迟初始化 lazy initialization"></a>套路2 - 延迟初始化 lazy initialization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class LazySingleton &#123;</div><div class="line"></div><div class="line">    private static LazySingleton instance;</div><div class="line"></div><div class="line">    private LazySingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static **synchronized** LazySingleton getInstance() &#123;</div><div class="line">        if (instance == null) &#123;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(1000 * 3);// mock long time init</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            instance = new LazySingleton();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="套路3-静态内部类-static-Holder"><a href="#套路3-静态内部类-static-Holder" class="headerlink" title="套路3 - 静态内部类 static Holder"></a>套路3 - 静态内部类 static Holder</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class InnerHolderClass &#123;</div><div class="line"></div><div class="line">    private InnerHolderClass() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static class InnerHolder &#123;</div><div class="line">        static InnerHolderClass innerHolder = new InnerHolderClass();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static InnerHolderClass getInstance() &#123;</div><div class="line">        InnerHolderClass innerHolder = InnerHolder.innerHolder;</div><div class="line"></div><div class="line">        try &#123;</div><div class="line">            Thread.sleep(3000);</div><div class="line">        &#125; catch (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return innerHolder;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="套路4-枚举-enum"><a href="#套路4-枚举-enum" class="headerlink" title="套路4 - 枚举 enum"></a>套路4 - 枚举 enum</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public enum EnumSingleton &#123;</div><div class="line">    SINGLE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="套路5-双重锁-double-check"><a href="#套路5-双重锁-double-check" class="headerlink" title="套路5 - 双重锁 double check"></a>套路5 - 双重锁 double check</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class DoubleCheckSingleton &#123;</div><div class="line">    //volatile is important!!!</div><div class="line">    //volatile is important!!!</div><div class="line">    //volatile is important!!!</div><div class="line">    private static **volatile** DoubleCheckSingleton instance;//volatile is important!!!</div><div class="line"></div><div class="line">    private DoubleCheckSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static DoubleCheckSingleton getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            synchronized (DoubleCheckSingleton.class) &#123;</div><div class="line">                if (null == instance) &#123;</div><div class="line">                    instance = new DoubleCheckSingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class EnhancedDoubleCheckSingleton &#123;</div><div class="line"></div><div class="line">    private static EnhancedDoubleCheckSingleton instance;</div><div class="line"></div><div class="line">    private EnhancedDoubleCheckSingleton() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //it&apos;s not the recommend way.we recommend lazy initialization inner class because the static instance field.</div><div class="line">    public static EnhancedDoubleCheckSingleton getInstance() &#123;</div><div class="line">        **EnhancedDoubleCheckSingleton tmp = instance;**</div><div class="line">        if (null == tmp) &#123;</div><div class="line">            synchronized (EnhancedDoubleCheckSingleton.class) &#123;</div><div class="line">                **tmp = instance;**</div><div class="line">                if (null == tmp) &#123;</div><div class="line">                    instance = tmp = new EnhancedDoubleCheckSingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return tmp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="git@git.coding.net:yb007/yb007.coding.me.git/2017/03/01/本博客的入坑纪实-Hexo博客平台/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rick Ho">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="If 十只橘猫九只胖">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/本博客的入坑纪实-Hexo博客平台/" itemprop="url">
-                  本博客的入坑纪实-Hexo博客平台
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T13:47:39+08:00">
-                2017-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/01/本博客的入坑纪实-Hexo博客平台/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/本博客的入坑纪实-Hexo博客平台/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/03/01/本博客的入坑纪实-Hexo博客平台/" class="leancloud_visitors" data-flag-title="本博客的入坑纪实-Hexo博客平台">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1822,7 +1908,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1840,7 +1926,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
