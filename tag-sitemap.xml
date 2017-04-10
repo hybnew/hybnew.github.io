@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-CopyOnWriteArrayList-%E5%B9%B6%E5%8F%91-%E6%BA%90%E7%A0%81/</loc>
-        <lastmod>2017-03-27T07:50:11.955Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-volatile-AtomicReference/</loc>
         <lastmod>2017-03-27T07:51:18.737Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -67,55 +60,6 @@
     <url>
         <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/AQS-AbstractQueuedSynchronizer-%E6%BA%90%E7%A0%81/</loc>
         <lastmod>2017-03-27T07:52:38.689Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/Java/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/%E5%B9%B6%E5%8F%91/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/%E9%80%9A%E4%BF%A1/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/wait/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/notify/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/notifyAll/</loc>
-        <lastmod>2017-03-27T07:58:40.189Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -163,8 +107,78 @@
     </url>
 
     <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/Java-CopyOnWriteArrayList-%E5%B9%B6%E5%8F%91-%E6%BA%90%E7%A0%81/</loc>
+        <lastmod>2017-04-01T07:08:30.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/redis/</loc>
-        <lastmod>2017-04-01T06:41:35.715Z</lastmod>
+        <lastmod>2017-04-05T02:39:33.994Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/Java/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/%E5%B9%B6%E5%8F%91/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/%E9%80%9A%E4%BF%A1/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/wait/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/notify/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/notifyAll/</loc>
+        <lastmod>2017-04-10T03:36:45.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/JVM/</loc>
+        <lastmod>2017-04-10T03:41:39.943Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>git@git.coding.net:yb007/yb007.coding.me.git/tags/OutOfMemory/</loc>
+        <lastmod>2017-04-10T03:41:39.943Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
